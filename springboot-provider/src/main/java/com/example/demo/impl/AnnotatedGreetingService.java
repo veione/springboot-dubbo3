@@ -42,14 +42,21 @@ package com.example.demo.impl;
 
 import com.example.demo.api.GreetingService;
 import org.apache.dubbo.config.annotation.DubboService;
+import org.springframework.beans.factory.annotation.Value;
 
-@DubboService(version = "1.0.0")
+@DubboService
 public class AnnotatedGreetingService implements GreetingService {
+    @Value("${server.port}")
+    private String port;
+
+    @Value("${dubbo.protocol.port}")
+    private String dubboPort;
 
     @Override
     public String sayHello(String name) {
-        System.out.println("greeting service received: " + name);
-        return "hello, " + name;
+        return "调用成功，端口是：" + port +
+                "，用户name：" + name +
+                "，dubbo端口：" + dubboPort;
     }
 
 }

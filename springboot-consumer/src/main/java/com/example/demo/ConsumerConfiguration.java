@@ -29,7 +29,7 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @EnableDubbo(scanBasePackages = "org.apache.dubbo.samples.action")
 //@PropertySource("classpath:/dubbo-consumer.properties")
-@PropertySource("classpath:/application.properties")
+@PropertySource("classpath:/application.yml")
 @ComponentScan(value = {"com.example.demo.action"})
 public class ConsumerConfiguration {
 
