@@ -1,0 +1,18 @@
+server:
+  port: 9001
+
+dubbo:
+  application:
+    id: service-provider
+    name: service-provider
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: -1
+    status: server
+    serialization: protostuff
+    server: netty4
+    register: true
+  registry:
+    id: game-server-101
+    address: zookeeper://localhost:2181?timeout=30000 # timeout 设置太小 程序启动不起来
